@@ -1,32 +1,22 @@
-import React from "react"
+import resumePDF from "./assets/resume.pdf"
 
 function App() {
 
-  const openGithub = () => {
-    window.open("https://github.com/ironfistloki45", "_blank")
-  }
+  const scrollProjects = () => {
+    const section = document.getElementById("projects")
 
-  const openLinkedin = () => {
-    window.open(
-      "https://www.linkedin.com/in/lokesh-kari-400b59227/",
-      "_blank"
-    )
-  }
-
-  const openProject = () => {
-    window.location.href = "http://localhost:5173"
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+      })
+    }
   }
 
   const downloadResume = () => {
-
     const link = document.createElement("a")
 
-    link.href = "/resume.pdf"
-
-    link.setAttribute(
-      "download",
-      "Lokesh_Kari_Resume.pdf"
-    )
+    link.href = resumePDF
+    link.download = "Lokesh_Kari_Resume.pdf"
 
     document.body.appendChild(link)
 
@@ -34,26 +24,14 @@ function App() {
 
     document.body.removeChild(link)
   }
-  const scrollProjects = () => {
 
-  const section = document.getElementById("projects")
-
-  if (section) {
-    section.scrollIntoView({
-      behavior: "smooth"
-    })
-  }
-
-}
   return (
-
-    <div className="bg-[#020617] text-white min-h-screen">
+    <div className="bg-[#020817] text-white min-h-screen">
 
       {/* HERO SECTION */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
 
-      <section className="max-w-6xl mx-auto px-8 py-24">
-
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-14 items-center">
 
           <div>
 
@@ -61,7 +39,7 @@ function App() {
               Full Stack Developer • AI Projects
             </p>
 
-            <h1 className="text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Lokesh <span className="text-blue-500">Kari</span>
             </h1>
 
@@ -71,18 +49,18 @@ function App() {
               using React, FastAPI, JavaScript, Python, and cloud technologies.
             </p>
 
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex flex-wrap gap-4">
 
               <button
                 onClick={scrollProjects}
-                className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold transition duration-300"
+                className="bg-blue-600 hover:bg-blue-700 transition px-7 py-4 rounded-xl font-semibold"
               >
                 View Projects
               </button>
 
               <button
                 onClick={downloadResume}
-                className="border border-gray-700 hover:border-blue-500 px-8 py-4 rounded-xl font-semibold transition duration-300"
+                className="border border-gray-600 hover:border-blue-500 hover:text-blue-400 transition px-7 py-4 rounded-xl font-semibold"
               >
                 Download Resume
               </button>
@@ -93,8 +71,8 @@ function App() {
 
           <div className="flex justify-center">
 
-            <div className="w-72 h-72 rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-7xl font-bold shadow-2xl">
-              LK
+            <div className="w-72 h-72 rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center shadow-2xl">
+              <span className="text-7xl font-bold">LK</span>
             </div>
 
           </div>
@@ -104,18 +82,17 @@ function App() {
       </section>
 
       {/* ABOUT */}
-
       <section className="border-t border-gray-800">
 
-        <div className="max-w-6xl mx-auto px-8 py-24">
+        <div className="max-w-6xl mx-auto px-6 py-20">
 
           <h2 className="text-5xl font-bold mb-12">
             About Me
           </h2>
 
-          <div className="bg-[#0f172a] border border-gray-800 rounded-3xl p-10">
+          <div className="bg-[#0b1733] border border-gray-800 rounded-3xl p-10">
 
-            <p className="text-gray-300 text-lg leading-10">
+            <p className="text-gray-300 text-lg leading-9">
               I am a software developer passionate about building scalable web
               applications, AI-powered platforms, and user-focused interfaces.
               I enjoy solving real-world problems using modern technologies and
@@ -129,12 +106,11 @@ function App() {
       </section>
 
       {/* SKILLS */}
-
       <section>
 
-        <div className="max-w-6xl mx-auto px-8 py-24">
+        <div className="max-w-6xl mx-auto px-6 py-20">
 
-          <h2 className="text-5xl font-bold mb-12">
+          <h2 className="text-5xl font-bold mb-14">
             Skills
           </h2>
 
@@ -153,7 +129,7 @@ function App() {
 
               <div
                 key={skill}
-                className="bg-[#0f172a] border border-gray-800 rounded-2xl p-8 text-center font-semibold hover:border-blue-500 hover:-translate-y-1 transition duration-300"
+                className="bg-[#0b1733] border border-gray-800 rounded-2xl p-8 text-center font-semibold hover:border-blue-500 hover:-translate-y-1 transition"
               >
                 {skill}
               </div>
@@ -167,22 +143,23 @@ function App() {
       </section>
 
       {/* PROJECTS */}
+      <section
+        id="projects"
+        className="border-t border-gray-800"
+      >
 
-      <section id="projects">
+        <div className="max-w-6xl mx-auto px-6 py-20">
 
-        <div className="max-w-6xl mx-auto px-8 py-24">
-
-          <h2 className="text-5xl font-bold mb-12">
+          <h2 className="text-5xl font-bold mb-14">
             Featured Projects
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
 
             {/* PROJECT 1 */}
+            <div className="bg-[#0b1733] border border-gray-800 rounded-3xl p-8 hover:border-blue-500 transition">
 
-            <div className="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 hover:border-blue-500 transition duration-300">
-
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex justify-between items-center mb-8">
 
                 <h3 className="text-3xl font-bold">
                   ClaimSense AI
@@ -203,44 +180,49 @@ function App() {
 
               <div className="flex flex-wrap gap-3 mb-8">
 
-                {["React", "FastAPI", "Python", "Tailwind", "OCR"].map((tech) => (
+                {["React", "FastAPI", "Python", "Tailwind", "OCR"].map(
+                  (tech) => (
 
-                  <span
-                    key={tech}
-                    className="bg-[#1e293b] px-4 py-2 rounded-xl text-sm"
-                  >
-                    {tech}
-                  </span>
+                    <span
+                      key={tech}
+                      className="bg-gray-800 px-4 py-2 rounded-xl text-sm"
+                    >
+                      {tech}
+                    </span>
 
-                ))}
+                  )
+                )}
 
               </div>
 
               <div className="flex gap-4">
 
-                <button
-                  onClick={openProject}
-                  className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl transition duration-300"
+                <a
+                  href="https://portfolio-website-8571gs1py-ironfistloki45s-projects.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-600 hover:bg-blue-700 transition px-6 py-3 rounded-xl font-semibold"
                 >
                   Live Demo
-                </button>
+                </a>
 
-                <button
-                  onClick={openGithub}
-                  className="border border-gray-700 hover:border-blue-500 px-6 py-3 rounded-xl transition duration-300"
+                <a
+                  href="https://github.com/ironfistloki45"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-gray-700 hover:border-blue-500 transition px-6 py-3 rounded-xl font-semibold"
                 >
                   GitHub
-                </button>
+                </a>
 
               </div>
 
             </div>
 
             {/* PROJECT 2 */}
+            <div className="bg-[#0b1733] border border-gray-800 rounded-3xl p-8 hover:border-cyan-400 transition">
 
-            <div className="bg-[#0f172a] border border-gray-800 rounded-3xl p-8 hover:border-cyan-500 transition duration-300">
-
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex justify-between items-center mb-8">
 
                 <h3 className="text-3xl font-bold">
                   Smart Dashboard UI
@@ -264,7 +246,7 @@ function App() {
 
                   <span
                     key={tech}
-                    className="bg-[#1e293b] px-4 py-2 rounded-xl text-sm"
+                    className="bg-gray-800 px-4 py-2 rounded-xl text-sm"
                   >
                     {tech}
                   </span>
@@ -275,19 +257,23 @@ function App() {
 
               <div className="flex gap-4">
 
-                <button
-                  onClick={openProject}
-                  className="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-xl transition duration-300"
+                <a
+                  href="https://portfolio-website-8571gs1py-ironfistloki45s-projects.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-cyan-500 hover:bg-cyan-600 transition px-6 py-3 rounded-xl font-semibold"
                 >
                   Live Demo
-                </button>
+                </a>
 
-                <button
-                  onClick={openGithub}
-                  className="border border-gray-700 hover:border-cyan-500 px-6 py-3 rounded-xl transition duration-300"
+                <a
+                  href="https://github.com/ironfistloki45"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-gray-700 hover:border-cyan-400 transition px-6 py-3 rounded-xl font-semibold"
                 >
                   GitHub
-                </button>
+                </a>
 
               </div>
 
@@ -300,43 +286,44 @@ function App() {
       </section>
 
       {/* CONTACT */}
-
       <section className="border-t border-gray-800">
 
-        <div className="max-w-4xl mx-auto px-8 py-24 text-center">
+        <div className="max-w-4xl mx-auto px-6 py-24 text-center">
 
           <h2 className="text-5xl font-bold mb-8">
             Let’s Connect
           </h2>
 
-          <p className="text-gray-400 text-lg mb-10">
+          <p className="text-gray-400 text-lg mb-12">
             Open to internships, collaborations, and software engineering opportunities.
           </p>
 
-          <div className="flex justify-center gap-6 flex-wrap">
+          <div className="flex flex-wrap justify-center gap-5">
 
-            <button
-              onClick={() =>
-                window.location.href = "mailto:karilokesh09692@email.com"
-              }
-              className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl transition duration-300"
+            <a
+              href="mailto:karilokesh09692@gmail.com"
+              className="bg-blue-600 hover:bg-blue-700 transition px-8 py-4 rounded-xl font-semibold"
             >
               Email Me
-            </button>
+            </a>
 
-            <button
-              onClick={openLinkedin}
-              className="border border-gray-700 hover:border-blue-500 px-8 py-4 rounded-xl transition duration-300"
+            <a
+              href="https://www.linkedin.com/in/lokesh-kari-400b59227/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-gray-700 hover:border-blue-500 transition px-8 py-4 rounded-xl font-semibold"
             >
               LinkedIn
-            </button>
+            </a>
 
-            <button
-              onClick={openGithub}
-              className="border border-gray-700 hover:border-blue-500 px-8 py-4 rounded-xl transition duration-300"
+            <a
+              href="https://github.com/ironfistloki45"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-gray-700 hover:border-blue-500 transition px-8 py-4 rounded-xl font-semibold"
             >
               GitHub
-            </button>
+            </a>
 
           </div>
 
@@ -345,9 +332,7 @@ function App() {
       </section>
 
     </div>
-
   )
-
 }
 
 export default App
