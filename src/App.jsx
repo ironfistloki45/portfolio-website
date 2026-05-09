@@ -15,8 +15,7 @@ function App() {
 
   const openProject = () => {
   window.open(
-    "https://portfolio-website-wkkmjxwf6-ironfistloki45s-projects.vercel.app",
-    "_blank"
+   "https://portfolio-website-xi-lake-28.vercel.app/"
   )
 }
 
